@@ -1,4 +1,6 @@
-# Celestia
+# Celestia mamaki 验证节点部署
+
+
 
 # celestia mamaki 测试网接水教程
 
