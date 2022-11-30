@@ -2,7 +2,7 @@
 
 # celestia mamaki 测试网接水教程
 
-第一步：准备钱包地址
+# 第一步：准备钱包地址
 
 方式一：Keplr钱包
 
@@ -16,7 +16,7 @@ http://aviaone.com/celestia-connect-wallet-keplr-testnet-mamaki.html/
 
 方式二：安装节点，通过命令生成钱包，轻节点与验证节点都支持
 
-第二步：加入官方DC开始接水
+# 第二步：加入官方DC开始接水
 
 https://discord.com/invite/YsnTPcSfWQ
 
