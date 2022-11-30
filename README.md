@@ -1,6 +1,6 @@
 # Celestia
 
-celestia mamaki 测试网接水教程
+# celestia mamaki 测试网接水教程
 
 第一步：准备钱包地址
 
