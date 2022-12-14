@@ -56,7 +56,7 @@
     cd $HOME
     rm -rf networks
     git clone https://github.com/celestiaorg/networks.git
-    MONIKER="AlchemyLabs"  //MONIKER为验证节点的名称, 会显示在浏览器上
+    MONIKER="AlchemyLabs"  // MONIKER为验证节点的名称, 会显示在浏览器上
 
 
 
@@ -65,11 +65,11 @@
 
 ### 第一步：准备钱包地址
 
-方式一：Keplr钱包
+    方式一：Keplr钱包
 
-1、安装Keplr钱包
+        1、安装Keplr钱包
 
-https://www.keplr.app/download
+    https://www.keplr.app/download
 
 2、将 Celestia 做为网络添加到 Keplr钱包中
 
