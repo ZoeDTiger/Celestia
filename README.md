@@ -4,7 +4,7 @@
 
 #### 1、系统依赖安装：安装用到的依赖包
 
-sudo apt install curl tar wget clang pkg-config libssl-dev jq build-essential git make ncdu tmux -y
+    sudo apt install curl tar wget clang pkg-config libssl-dev jq build-essential git make ncdu tmux -y
 
 #### 2、golang编译环境安装
 
@@ -17,67 +17,46 @@ sudo apt install curl tar wget clang pkg-config libssl-dev jq build-essential gi
 
 ##### b、设置golang的环境变量
 
-echo "export GOROOT=/usr/local/go" |  sudo tee -a /etc/profile
-
-echo "export GOPATH=$HOME/go" |  sudo tee -a /etc/profile
-
-echo "export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin" |  sudo tee -a /etc/profile
-
-echo "export GO111MODULE=on" |  sudo tee -a /etc/profile
-
-echo "export GOPROXY=https://goproxy.cn" |  sudo tee -a /etc/profile
+    echo "export GOROOT=/usr/local/go" |  sudo tee -a /etc/profile
+    echo "export GOPATH=$HOME/go" |  sudo tee -a /etc/profile
+    echo "export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin" |  sudo tee -a /etc/profile
+    echo "export GO111MODULE=on" |  sudo tee -a /etc/profile
+    echo "export GOPROXY=https://goproxy.cn" |  sudo tee -a /etc/profile
 
 ##### c、使用环境生效
 
-source /etc/profile
+    source /etc/profile
 
 #### 3、设置进程运行的文件句柄数量：防止进程莫名其秒的自动退出
 
-echo "ulimit -SHn 1048576" |  sudo tee -a /etc/profile
-
-echo "* hard nofile 1048576" |  sudo tee -a /etc/security/limits.conf
-
-echo "* soft nofile 1048576" |  sudo tee -a /etc/security/limits.conf
-
-echo "DefaultLimitNOFILE=1048576" |  sudo tee -a /etc/systemd/user.conf
-
-echo "DefaultLimitNOFILE=1048576" |  sudo tee -a /etc/systemd/system.conf
-
-echo "session required pam_limits.so" |  sudo tee -a /etc/pam.d/common-session
-
-source /etc/profile
+    echo "ulimit -SHn 1048576" |  sudo tee -a /etc/profile
+    echo "* hard nofile 1048576" |  sudo tee -a /etc/security/limits.conf
+    echo "* soft nofile 1048576" |  sudo tee -a /etc/security/limits.conf
+    echo "DefaultLimitNOFILE=1048576" |  sudo tee -a /etc/systemd/user.conf
+    echo "DefaultLimitNOFILE=1048576" |  sudo tee -a /etc/systemd/system.conf
+    echo "session required pam_limits.so" |  sudo tee -a /etc/pam.d/common-session
+    source /etc/profile
 
 ### 第二部分 部署celestia-app
 
 #### 1、编译celestia-appd二进制应用
 
-cd $HOME
-
-rm -rf celestia-app
-
-git clone https://github.com/celestiaorg/celestia-app.git
-
-cd celestia-app/
-
-APP_VERSION=v0.6.0
-
-git checkout tags/$APP_VERSION -b $APP_VERSION
-
-make install
-
-sudo cp $HOME/go/bin/celestia-appd /usr/local/bin/
-
-celestia-appd version
+    cd $HOME
+    rm -rf celestia-app
+    git clone https://github.com/celestiaorg/celestia-app.git
+    cd celestia-app/
+    APP_VERSION=v0.6.0
+    git checkout tags/$APP_VERSION -b $APP_VERSION
+    make install
+    sudo cp $HOME/go/bin/celestia-appd /usr/local/bin/
+    celestia-appd version
 
 #### 2、准备网络创世文件
 
-cd $HOME
-
-rm -rf networks
-
-git clone https://github.com/celestiaorg/networks.git
-
-MONIKER="AlchemyLabs"  # MONIKER为验证节点的名称, 会显示在浏览器上
+    cd $HOME
+    rm -rf networks
+    git clone https://github.com/celestiaorg/networks.git
+    MONIKER="AlchemyLabs"  # MONIKER为验证节点的名称, 会显示在浏览器上
 
 
 
