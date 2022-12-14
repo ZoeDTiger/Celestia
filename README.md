@@ -56,7 +56,8 @@
     cd $HOME
     rm -rf networks
     git clone https://github.com/celestiaorg/networks.git
-    MONIKER="AlchemyLabs"  <!-- MONIKER为验证节点的名称, 会显示在浏览器上 -->
+    MONIKER="AlchemyLabs"  
+<!-- MONIKER为验证节点的名称, 会显示在浏览器上 -->
 
 
 
@@ -79,4 +80,5 @@
 ![image](https://user-images.githubusercontent.com/100336530/204741398-bcebe555-718b-4c69-b337-7a54bebf1dc9.png)
 
 **注意：同一DC帐号，同一钱包；不同DC帐号，同一钱包接水都有7天的间隔时间**
+
 ![image](https://user-images.githubusercontent.com/100336530/204741497-1eab1b82-5a3f-459b-8d58-d5b2735364bd.png)
