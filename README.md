@@ -121,6 +121,8 @@
 
 #### 7、启动节点
 
+第5步快速同步区块快照也可使用如下方式：screen另起窗口下载： https://snaps.qubelabs.io/celestia/mamaki_2022-12-14.tar
+
     cd $HOME
     screen -S celestia
     celestia-appd start
