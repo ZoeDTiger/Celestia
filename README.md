@@ -86,7 +86,26 @@
     sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$PRUNING_KEEP_RECENT\"/" $HOME/.celestia-app/config/app.toml
     sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$PRUNING_INTERVAL\"/" $HOME/.celestia-app/config/app.toml
 
+#### 4、配置节点为validator运行模式
 
+下面的命令主要是修改celestia配置文件config.toml里面的部分内容, 修改为 mode = "validator"
+
+    sed -i.bak -e "s/^mode *=.*/mode = \"validator\"/" $HOME/.celestia-app/config/config.toml
+
+#### 5、复位网络区块数据，并下载新数据导入
+
+回到家目录
+
+    cd $HOME
+复位网络区块数据, 将会清空$HOME/.celestia-app/data 目录下的区块数据文件
+
+    celestia-appd tendermint unsafe-reset-all --home $HOME/.celestia-app
+获取将要下载的区块数据文件名称，并解压下载的区块数据到 $HOME/.celestia-app/data/ 目录中
+
+    rm -rf ~/.celestia-app/data
+    mkdir -p ~/.celestia-app/data
+    SNAP_NAME=$(curl -s https://snaps.qubelabs.io/celestia/ | egrep -o ">mamaki.*tar" | tr -d ">")
+    wget -O - https://snaps.qubelabs.io/celestia/${SNAP_NAME} | tar xf - -C ~/.celestia-app/data/
 
 
 
