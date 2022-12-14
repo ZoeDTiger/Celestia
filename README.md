@@ -131,6 +131,13 @@
     screen -S celestia
     celestia-appd start
 
+#### 8、质押
+
+通过钱包地址查看验证地址
+    celestia-appd keys show 第6步生成的钱包地址 --bech val -a
+
+
+
 
 ## celestia mamaki 测试网接水教程
 
