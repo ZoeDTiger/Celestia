@@ -1,5 +1,10 @@
 # Celestia mamaki 验证节点部署
 
+## 第一步 环境准备
+
+#### 1、系统依赖安装
+
+sudo apt install curl tar wget clang pkg-config libssl-dev jq build-essential git make ncdu tmux -y # 安装用到的依赖包
 
 
 # celestia mamaki 测试网接水教程
