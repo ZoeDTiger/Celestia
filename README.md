@@ -61,6 +61,25 @@
 设置验证节点的名称为MONIKER
 
     MONIKER="AlchemyLabs"
+生成~/.celestia-app/配置目录
+
+    celestia-appd init $MONIKER --chain-id mamaki
+拷贝genesis.json创世文件到~/.celestia-app/配置目录中
+
+    cp $HOME/networks/mamaki/genesis.json $HOME/.celestia-app/config
+获取到官方的启动节点列表
+
+    BOOTSTRAP_PEERS=$(curl -sL https://raw.githubusercontent.com/celestiaorg/networks/master/mamaki/bootstrap-peers.txt | tr -d '\n')
+修改配置文件, 将官方的启动节点添加到里面
+
+    echo $BOOTSTRAP_PEERS
+    sed -i.bak -e "s/^bootstrap-peers *=.*/bootstrap-peers = \"$BOOTSTRAP_PEERS\"/" $HOME/.celestia-app/config/config.toml
+
+
+
+
+
+
 
 
 
