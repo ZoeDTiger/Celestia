@@ -1,13 +1,49 @@
-# Celestia mamaki 验证节点部署
+## Celestia mamaki 验证节点部署
 
-## 第一步 环境准备
+### 第一步 环境准备
 
-#### 1、系统依赖安装
+#### 1、系统依赖安装：安装用到的依赖包
 
-sudo apt install curl tar wget clang pkg-config libssl-dev jq build-essential git make ncdu tmux -y # 安装用到的依赖包
+sudo apt install curl tar wget clang pkg-config libssl-dev jq build-essential git make ncdu tmux -y
+
+#### 2、golang编译环境安装
+
+##### a、下载Go压缩包
+
+cd ~
+
+wget "https://go.dev/dl/go1.19.4.linux-amd64.tar.gz"
+
+sudo rm -rf /usr/local/go
+
+sudo tar -C /usr/local -zxvf go1.19.4.linux-amd64.tar.gz
+
+##### b、设置golang的环境变量
+
+echo "export GOROOT=/usr/local/go" |  sudo tee -a /etc/profile
+
+echo "export GOPATH=$HOME/go" |  sudo tee -a /etc/profile
+
+echo "export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin" |  sudo tee -a /etc/profile
+
+echo "export GO111MODULE=on" |  sudo tee -a /etc/profile
+
+echo "export GOPROXY=https://goproxy.cn" |  sudo tee -a /etc/profile
+
+##### c、使用环境生效
+
+source /etc/profile
 
 
-# celestia mamaki 测试网接水教程
+
+
+
+
+
+
+
+
+## celestia mamaki 测试网接水教程
 
 ### 第一步：准备钱包地址
 
