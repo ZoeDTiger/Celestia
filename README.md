@@ -56,8 +56,7 @@
     cd $HOME
     rm -rf networks
     git clone https://github.com/celestiaorg/networks.git
-    MONIKER="AlchemyLabs"  
-//MONIKER为验证节点的名称, 会显示在浏览器上
+MONIKER="AlchemyLabs"  *MONIKER为验证节点的名称, 会显示在浏览器上
 
 
 
