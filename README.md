@@ -1,5 +1,11 @@
 ## Celestia mamaki 验证节点部署
 
+    系统要求：Ubuntu Linux 20.04 （LTS） x64
+    内存：8 GB
+    CPU：四核
+    磁盘：250 GB固态硬盘
+    带宽：下载 1 Gbps/上传 100 Mbps
+
 ### 第一步 环境准备
 
 #### 1、系统依赖安装：安装用到的依赖包
