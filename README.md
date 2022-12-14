@@ -11,31 +11,45 @@ sudo apt install curl tar wget clang pkg-config libssl-dev jq build-essential gi
 ##### a、下载Go压缩包
 
 cd ~
+
 wget "https://go.dev/dl/go1.19.4.linux-amd64.tar.gz"
+
 sudo rm -rf /usr/local/go
+
 sudo tar -C /usr/local -zxvf go1.19.4.linux-amd64.tar.gz
 
 ##### b、设置golang的环境变量
 
 echo "export GOROOT=/usr/local/go" |  sudo tee -a /etc/profile
+
 echo "export GOPATH=$HOME/go" |  sudo tee -a /etc/profile
+
 echo "export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin" |  sudo tee -a /etc/profile
+
 echo "export GO111MODULE=on" |  sudo tee -a /etc/profile
+
 echo "export GOPROXY=https://goproxy.cn" |  sudo tee -a /etc/profile
 
 ##### c、使用环境生效
 
 source /etc/profile
 
-#### 3、设置进程运行的文件句柄数量
+#### 3、设置进程运行的文件句柄数量：防止进程莫名其秒的自动退出
 
 echo "ulimit -SHn 1048576" |  sudo tee -a /etc/profile
+
 echo "* hard nofile 1048576" |  sudo tee -a /etc/security/limits.conf
+
 echo "* soft nofile 1048576" |  sudo tee -a /etc/security/limits.conf
+
 echo "DefaultLimitNOFILE=1048576" |  sudo tee -a /etc/systemd/user.conf
+
 echo "DefaultLimitNOFILE=1048576" |  sudo tee -a /etc/systemd/system.conf
+
 echo "session required pam_limits.so" |  sudo tee -a /etc/pam.d/common-session
+
 source /etc/profile
+
 
 
 
