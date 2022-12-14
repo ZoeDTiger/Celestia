@@ -10,7 +10,7 @@ sudo apt install curl tar wget clang pkg-config libssl-dev jq build-essential gi
 
 ##### a、下载Go压缩包
 
-cd ~
+cd $HOME
 
 wget "https://go.dev/dl/go1.19.4.linux-amd64.tar.gz"
 
@@ -50,7 +50,37 @@ echo "session required pam_limits.so" |  sudo tee -a /etc/pam.d/common-session
 
 source /etc/profile
 
+### 第二部分 部署celestia-app
 
+#### 1、编译celestia-appd二进制应用
+
+cd $HOME
+
+rm -rf celestia-app
+
+git clone https://github.com/celestiaorg/celestia-app.git
+
+cd celestia-app/
+
+APP_VERSION=v0.6.0
+
+git checkout tags/$APP_VERSION -b $APP_VERSION
+
+make install
+
+sudo cp $HOME/go/bin/celestia-appd /usr/local/bin/
+
+celestia-appd version
+
+#### 2、准备网络创世文件
+
+cd $HOME
+
+rm -rf networks
+
+git clone https://github.com/celestiaorg/networks.git
+
+MONIKER="AlchemyLabs"  # MONIKER为验证节点的名称, 会显示在浏览器上
 
 
 
