@@ -10,13 +10,10 @@ sudo apt install curl tar wget clang pkg-config libssl-dev jq build-essential gi
 
 ##### a、下载Go压缩包
 
-cd $HOME
-
-wget "https://go.dev/dl/go1.19.4.linux-amd64.tar.gz"
-
-sudo rm -rf /usr/local/go
-
-sudo tar -C /usr/local -zxvf go1.19.4.linux-amd64.tar.gz
+    cd $HOME
+    wget "https://go.dev/dl/go1.19.4.linux-amd64.tar.gz"
+    sudo rm -rf /usr/local/go
+    sudo tar -C /usr/local -zxvf go1.19.4.linux-amd64.tar.gz
 
 ##### b、设置golang的环境变量
 
