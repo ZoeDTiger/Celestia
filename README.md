@@ -60,7 +60,7 @@
     git clone https://github.com/celestiaorg/networks.git
 设置验证节点的名称为MONIKER
 
-    MONIKER="AlchemyLabs"
+    MONIKER="your_moniker"
 生成~/.celestia-app/配置目录
 
     celestia-appd init $MONIKER --chain-id mamaki
@@ -131,11 +131,35 @@
     screen -S celestia
     celestia-appd start
 
-#### 8、质押
+#### 8、运行验证节点并质押
 
 通过钱包地址查看验证地址
-    celestia-appd keys show 第6步生成的钱包地址 --bech val -a
 
+    celestia-appd keys show 第6步生成的钱包地址 --bech val -a
+查询钱包余额
+
+    celestia-appd query bank balances 第6步生成的钱包地址
+创建验证人
+
+    MONIKER="your_moniker"
+    VALIDATOR_WALLET="youe_wallet_name"
+    celestia-appd tx staking create-validator \
+    --amount=1000000utia \
+    --pubkey=$(celestia-appd tendermint show-validator) \
+    --moniker=$MONIKER \
+    --chain-id=mamaki \
+    --commission-rate=0.1 \
+    --commission-max-rate=0.2 \
+    --commission-max-change-rate=0.01 \
+    --min-self-delegation=1000000 \
+    --from=$VALIDATOR_WALLET \
+    --keyring-backend=test
+质押
+
+    VALIDATOR_WALLET=celestia1dxxxxxxxxxxxxxxxxxxxxxx
+    AMOUNT=1000000utia
+    OP_WALLET=celestiavaloper1dxxxxxxxxxxxxxxxxxxxxxx
+    celestia-appd tx staking delegate $OP_WALLET $AMOUNT --from=$VALIDATOR_WALLET --chain-id=mamaki
 
 
 
