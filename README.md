@@ -56,6 +56,7 @@
     cd $HOME
     rm -rf networks
 下载新的项目代码仓库目录, 目的是为了获取到里面的genesis.json创世文件
+
     git clone https://github.com/celestiaorg/networks.git
     MONIKER="AlchemyLabs"
 
