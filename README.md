@@ -121,7 +121,11 @@
 
 #### 7、启动节点
 
-第5步快速同步区块快照也可使用如下方式：screen另起窗口下载： https://snaps.qubelabs.io/celestia/mamaki_2022-12-14.tar
+第5步快速同步区块快照也可使用如下方式：screen另起窗口下载： 
+
+    wget https://snaps.qubelabs.io/celestia/mamaki_2022-12-14.tar
+
+要确保$HOME/.celestia-app/data目录下有priv_validator_state.json，否则无法启动
 
     cd $HOME
     screen -S celestia
