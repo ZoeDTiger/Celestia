@@ -107,7 +107,7 @@
     SNAP_NAME=$(curl -s https://snaps.qubelabs.io/celestia/ | egrep -o ">mamaki.*tar" | tr -d ">")
     wget -O - https://snaps.qubelabs.io/celestia/${SNAP_NAME} | tar xf - -C ~/.celestia-app/data/
 
-#### 6、创建钱包
+#### 6、创建钱包：接水教程往下看
 
 在~/.celestia-app/下生成钱包信息
 
@@ -118,6 +118,12 @@
 查看钱包地址
 
     celestia-appd keys list
+
+#### 7、启动节点
+
+    cd $HOME
+    screen -S celestia
+    celestia-appd start
 
 
 ## celestia mamaki 测试网接水教程
