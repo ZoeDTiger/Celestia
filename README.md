@@ -75,7 +75,16 @@
     echo $BOOTSTRAP_PEERS
     sed -i.bak -e "s/^bootstrap-peers *=.*/bootstrap-peers = \"$BOOTSTRAP_PEERS\"/" $HOME/.celestia-app/config/config.toml
 
+#### 3、配置节点为修剪模式（节省存储空间）
 
+为了降低磁盘空间使用率，下面的命令主要是修改celestia-appd配置文件app.toml里面的部分内容
+
+    PRUNING="custom"
+    PRUNING_KEEP_RECENT="100"
+    PRUNING_INTERVAL="10"
+    sed -i -e "s/^pruning *=.*/pruning = \"$PRUNING\"/" $HOME/.celestia-app/config/app.toml
+    sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$PRUNING_KEEP_RECENT\"/" $HOME/.celestia-app/config/app.toml
+    sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$PRUNING_INTERVAL\"/" $HOME/.celestia-app/config/app.toml
 
 
 
