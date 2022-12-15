@@ -73,13 +73,24 @@
 拷贝genesis.json创世文件到~/.celestia-app/配置目录中
 
     cp $HOME/networks/mamaki/genesis.json $HOME/.celestia-app/config
-获取到官方的启动节点列表
+配置p2p参数，获取到官方的启动节点列表，并修改配置文件, 将官方的启动节点添加到里面
 
     BOOTSTRAP_PEERS=$(curl -sL https://raw.githubusercontent.com/celestiaorg/networks/master/mamaki/bootstrap-peers.txt | tr -d '\n')
-修改配置文件, 将官方的启动节点添加到里面
-
     echo $BOOTSTRAP_PEERS
     sed -i.bak -e "s/^bootstrap-peers *=.*/bootstrap-peers = \"$BOOTSTRAP_PEERS\"/" $HOME/.celestia-app/config/config.toml
+
+设置共识配置选项（可选）
+    sed -i 's/timeout-commit = ".*/timeout-commit = "25s"/g' $HOME/.celestia-app/config/config.toml
+    sed -i 's/peer-gossip-sleep-duration *=.*/peer-gossip-sleep-duration = "2ms"/g' $HOME/.celestia-app/config/config.toml
+    
+    max_num_inbound_peers=40
+    max_num_outbound_peers=10
+    max_connections=50
+    
+    sed -i -e "s/^use-legacy *=.*/use-legacy = false/;\
+    s/^max-num-inbound-peers *=.*/max-num-inbound-peers = $max_num_inbound_peers/;\
+    s/^max-num-outbound-peers *=.*/max-num-outbound-peers = $max_num_outbound_peers/;\
+    s/^max-connections *=.*/max-connections = $max_connections/" $HOME/.celestia-app/config/config.toml
 
 #### 3、配置节点为修剪模式（节省存储空间）
 
@@ -115,6 +126,7 @@
 
 在~/.celestia-app/下生成钱包信息
 
+    celestia-appd config chain-id mamaki
     celestia-appd config keyring-backend test
 创建名为 youe_wallet_name 的钱包并生成地址(请保管好钱包的助记词, 私钥等信息)
 
