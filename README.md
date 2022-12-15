@@ -10,7 +10,8 @@
 
 #### 1、系统依赖安装：安装用到的依赖包
 
-    sudo apt install curl tar wget clang pkg-config libssl-dev jq build-essential git make ncdu tmux -y
+    sudo apt update && sudo apt upgrade -y
+    sudo apt install curl tar wget clang pkg-config libssl-dev jq build-essential git make ncdu -y
 
 #### 2、golang编译环境安装
 
