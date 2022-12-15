@@ -100,11 +100,9 @@
 
 #### 5、复位网络区块数据，并下载新数据导入
 
-回到家目录
-
-    cd $HOME
 复位网络区块数据, 将会清空$HOME/.celestia-app/data 目录下的区块数据文件
 
+    cd $HOME
     celestia-appd tendermint unsafe-reset-all --home $HOME/.celestia-app
 获取将要下载的区块数据文件名称，并解压下载的区块数据到 $HOME/.celestia-app/data/ 目录中
 
