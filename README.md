@@ -1,4 +1,4 @@
-## Celestia mamaki 验证节点部署
+## Celestia Mocha 验证节点部署
 
     系统要求：Ubuntu Linux 20.04 （LTS） x64
     内存：8 GB
