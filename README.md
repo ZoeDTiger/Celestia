@@ -75,9 +75,18 @@
     cp $HOME/networks/mocha/genesis.json $HOME/.celestia-app/config
 配置p2p参数，获取到官方的启动节点列表，并修改配置文件, 将官方的启动节点添加到里面
 
+##### mamaki测试网
     BOOTSTRAP_PEERS=$(curl -sL https://raw.githubusercontent.com/celestiaorg/networks/master/mamaki/bootstrap-peers.txt | tr -d '\n')
     echo $BOOTSTRAP_PEERS
     sed -i.bak -e "s/^bootstrap-peers *=.*/bootstrap-peers = \"$BOOTSTRAP_PEERS\"/" $HOME/.celestia-app/config/config.toml
+
+##### mocha测试网
+
+    SEEDS="some seeds"
+    PEERS="some peers"
+    SEED_MODE="true"
+    sed -i -e 's|^seeds *=.*|seeds = "'$SEEDS'"|; s|^persistent_peers *=.*|persistent_peers = "'$PEERS'"|' $HOME/.celestia-app/config/config.toml
+    sed -i -e "s/^seed_mode *=.*/seed_mode = \"$SEED_MODE\"/" $HOME/.celestia-app/config/config.toml
 
 设置共识配置选项（可选）
 
@@ -120,7 +129,7 @@
 
     rm -rf ~/.celestia-app/data
     mkdir -p ~/.celestia-app/data
-    SNAP_NAME=$(curl -s https://snaps.qubelabs.io/celestia/ | egrep -o ">mamaki.*tar" | tr -d ">")
+    SNAP_NAME=$(curl -s https://snaps.qubelabs.io/celestia/ | egrep -o ">mocha.*tar" | tr -d ">")
     wget -O - https://snaps.qubelabs.io/celestia/${SNAP_NAME} | tar xf - -C ~/.celestia-app/data/
 
 #### 6、创建钱包：接水教程往下看
