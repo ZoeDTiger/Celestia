@@ -82,6 +82,8 @@
 
 ##### mocha测试网
 
+获取到官方的种子列表、启动节点列表，并添加到配置文件里面
+
     SEEDS=$(curl -sL https://github.com/celestiaorg/networks/raw/master/mocha/seeds.txt | tr -d '\n')
     PEERS=$(curl -sL https://github.com/celestiaorg/networks/raw/master/mocha/peers.txt | tr -d '\n')
     SEED_MODE="true"
