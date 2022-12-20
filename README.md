@@ -69,10 +69,10 @@
     MONIKER="your_moniker"
 生成~/.celestia-app/配置目录
 
-    celestia-appd init $MONIKER --chain-id mamaki
+    celestia-appd init $MONIKER --chain-id mocha
 拷贝genesis.json创世文件到~/.celestia-app/配置目录中
 
-    cp $HOME/networks/mamaki/genesis.json $HOME/.celestia-app/config
+    cp $HOME/networks/mocha/genesis.json $HOME/.celestia-app/config
 配置p2p参数，获取到官方的启动节点列表，并修改配置文件, 将官方的启动节点添加到里面
 
     BOOTSTRAP_PEERS=$(curl -sL https://raw.githubusercontent.com/celestiaorg/networks/master/mamaki/bootstrap-peers.txt | tr -d '\n')
