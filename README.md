@@ -136,7 +136,7 @@
 
 在~/.celestia-app/下生成钱包信息
 
-    celestia-appd config chain-id mamaki
+    celestia-appd config chain-id mocha
     celestia-appd config keyring-backend test
 创建名为 youe_wallet_name 的钱包并生成地址(请保管好钱包的助记词, 私钥等信息)
 
@@ -173,7 +173,7 @@
     --amount=1000000utia \
     --pubkey=$(celestia-appd tendermint show-validator) \
     --moniker=$MONIKER \
-    --chain-id=mamaki \
+    --chain-id=mocha \
     --commission-rate=0.1 \
     --commission-max-rate=0.2 \
     --commission-max-change-rate=0.01 \
