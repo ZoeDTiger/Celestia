@@ -82,10 +82,11 @@
 
 ##### mocha测试网
 
-    SEEDS="some seeds"
-    PEERS="some peers"
+    SEEDS=$(curl -sL https://github.com/celestiaorg/networks/raw/master/mocha/seeds.txt | tr -d '\n')
+    PEERS=$(curl -sL https://github.com/celestiaorg/networks/raw/master/mocha/peers.txt | tr -d '\n')
     SEED_MODE="true"
-    sed -i -e 's|^seeds *=.*|seeds = "'$SEEDS'"|; s|^persistent_peers *=.*|persistent_peers = "'$PEERS'"|' $HOME/.celestia-app/config/config.toml
+    sed -i -e "s|^seeds *=.*|seeds = \"$SEEDS\"|g" $HOME/.celestia-app/config/config.toml
+    sed -i -e "s|^persistent_peers *=.*|persistent_peers = \"$PEERS\"|g" $HOME/.celestia-app/config/config.toml
     sed -i -e "s/^seed_mode *=.*/seed_mode = \"$SEED_MODE\"/" $HOME/.celestia-app/config/config.toml
 
 设置共识配置选项（可选）
