@@ -151,7 +151,17 @@
 
     wget https://snaps.qubelabs.io/celestia/mamaki_2022-12-14.tar
 
-要确保$HOME/.celestia-app/data目录下有priv_validator_state.json，否则无法启动
+要确保$HOME/.celestia-app/data目录下有priv_validator_state.json，否则无法启动，正常情况此文件会自动生成，如果没有可手动生成
+
+    vim priv_validator_state.json
+    
+    <------------------>
+    {
+      "height": "0",
+      "round": 0,
+      "step": 0
+    }
+    <------------------>
 
     cd $HOME
     screen -S celestia
