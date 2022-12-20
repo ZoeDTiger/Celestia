@@ -52,7 +52,7 @@
     rm -rf celestia-app
     git clone https://github.com/celestiaorg/celestia-app.git
     cd celestia-app/
-    APP_VERSION=v0.6.0
+    APP_VERSION=v0.11.0
     git checkout tags/$APP_VERSION -b $APP_VERSION
     make install
     sudo cp $HOME/go/bin/celestia-appd /usr/local/bin/
