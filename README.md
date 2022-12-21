@@ -116,13 +116,7 @@
     sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$PRUNING_KEEP_RECENT\"/" $HOME/.celestia-app/config/app.toml
     sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$PRUNING_INTERVAL\"/" $HOME/.celestia-app/config/app.toml
 
-#### 4、配置节点为validator运行模式
-
-下面的命令主要是修改celestia配置文件config.toml里面的部分内容, 修改为 mode = "validator"
-
-    sed -i.bak -e "s/^mode *=.*/mode = \"validator\"/" $HOME/.celestia-app/config/config.toml
-
-#### 5、复位网络区块数据，并下载新数据导入
+#### 4、复位网络区块数据，并下载新数据导入
 
 复位网络区块数据, 将会清空$HOME/.celestia-app/data 目录下的区块数据文件
 
@@ -135,7 +129,7 @@
     SNAP_NAME=$(curl -s https://snaps.qubelabs.io/celestia/ | egrep -o ">mocha.*tar" | tr -d ">")
     wget -O - https://snaps.qubelabs.io/celestia/${SNAP_NAME} | tar xf - -C ~/.celestia-app/data/
 
-#### 6、创建钱包：接水教程往下看
+#### 5、创建钱包：接水教程往下看
 
 在~/.celestia-app/下生成钱包信息
 
@@ -148,11 +142,7 @@
 
     celestia-appd keys list
 
-#### 7、启动节点
-
-第5步快速同步区块快照也可使用如下方式：screen另起窗口下载： 
-
-    wget https://snaps.qubelabs.io/celestia/mamaki_2022-12-14.tar
+#### 6、启动节点
 
 要确保$HOME/.celestia-app/data目录下有priv_validator_state.json，否则无法启动，正常情况此文件会自动生成，如果没有可手动生成
 
@@ -170,7 +160,7 @@
     screen -S celestia
     celestia-appd start
 
-#### 8、运行验证节点并质押
+#### 7、运行验证节点并质押
 
 通过钱包地址查看验证地址
 
@@ -201,15 +191,14 @@
     celestia-appd tx staking delegate $OP_WALLET $AMOUNT --from=$VALIDATOR_WALLET --chain-id=mamaki
 
 
-
-## celestia mamaki 测试网接水教程
+## celestia 测试网接水教程
 
 ### 第一步：准备钱包地址
 
 方式一：Keplr钱包
 
     1、安装Keplr钱包, https://www.keplr.app/download
-    2、将 Celestia 做为网络添加到 Keplr钱包中, http://aviaone.com/celestia-connect-wallet-keplr-testnet-mamaki.html/
+    2、将 Celestia 做为网络添加到 Keplr钱包中, https://docs.celestia.org/developers/keplr/
 
 方式二：安装节点，通过命令生成钱包，轻节点与验证节点都支持
 
