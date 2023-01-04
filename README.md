@@ -171,7 +171,7 @@
 创建验证人
 
     MONIKER="your_moniker"
-    VALIDATOR_WALLET="youe_wallet"
+    VALIDATOR_WALLET="youe_celestia_wallet"
     EVM_ADDRESS="eth_wallet"
     ORCHESTRATOR_ADDRESS="new_celestia_wallet"
     celestia-appd tx staking create-validator \
@@ -194,7 +194,7 @@
     VALIDATOR_WALLET=celestia1dxxxxxxxxxxxxxxxxxxxxxx
     AMOUNT=1000000utia
     OP_WALLET=celestiavaloper1dxxxxxxxxxxxxxxxxxxxxxx
-    celestia-appd tx staking delegate $OP_WALLET $AMOUNT --from=$VALIDATOR_WALLET --chain-id=mamaki
+    celestia-appd tx staking delegate $OP_WALLET $AMOUNT --from=$VALIDATOR_WALLET --chain-id=mocha
 
 
 ## celestia 测试网接水教程
