@@ -171,18 +171,24 @@
 创建验证人
 
     MONIKER="your_moniker"
-    VALIDATOR_WALLET="youe_wallet_name"
+    VALIDATOR_WALLET="youe_wallet"
+    EVM_ADDRESS="eth_wallet"
+    ORCHESTRATOR_ADDRESS="new_celestia_wallet"
     celestia-appd tx staking create-validator \
-    --amount=1000000utia \
+    --amount=5000000utia \
     --pubkey=$(celestia-appd tendermint show-validator) \
     --moniker=$MONIKER \
     --chain-id=mocha \
     --commission-rate=0.1 \
     --commission-max-rate=0.2 \
     --commission-max-change-rate=0.01 \
-    --min-self-delegation=1000000 \
+    --min-self-delegation=1 \
     --from=$VALIDATOR_WALLET \
-    --keyring-backend=test
+    --evm-address=$EVM_ADDRESS \
+    --orchestrator-address=$ORCHESTRATOR_ADDRESS \
+    --keyring-backend=test \
+    --fees=300000utia \
+    --gas="auto"
 质押
 
     VALIDATOR_WALLET=celestia1dxxxxxxxxxxxxxxxxxxxxxx
